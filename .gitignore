@@ -16,3 +16,4 @@ Section_03/BuildingEscape/Content/StarterContent/
 *.VC.db
 
 
+*.ipch
