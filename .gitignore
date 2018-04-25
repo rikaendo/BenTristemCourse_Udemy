@@ -2,12 +2,15 @@
 # Unreal Generated Files #
 ##########################
 
-Section_03/BuildingEscape/Binaries/
-Section_03/BuildingEscape/Build/
-Section_03/BuildingEscape/DerivedDataCache/
-Section_03/BuildingEscape/Intermediate/
-Section_03/BuildingEscape/Saved/
-Section_03/BuildingEscape/Content/StarterContent/
+*/BuildingEscape/Binaries/
+*/BuildingEscape/Build/
+*/BuildingEscape/DerivedDataCache/
+*/BuildingEscape/Intermediate/
+*/BuildingEscape/Saved/
+*/BuildingEscape/Content/StarterContent/Textures
+*/BuildingEscape/Content/StarterContent/HDRI
+*/BuildingEscape/Content/StarterContent/Maps
+
 
 ######################
 # VS Generated Files #
