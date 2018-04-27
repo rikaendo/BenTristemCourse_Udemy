@@ -49,4 +49,11 @@ private:
 
 	///return hit for first physics body in reach
 	const FHitResult GetFirstPhysicsBodyInReach();
+
+	///gets start of reach line, Player's view point transforms
+	FTransform GetLineTraceStart();
+
+	///Gets Line trace end point from Player view point location and rotation with specified reach
+	FVector GetLineTraceEnd();
+
 };
