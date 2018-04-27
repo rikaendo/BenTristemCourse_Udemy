@@ -3,12 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
-#include "GameFramework/PlayerController.h"
-#include "Engine/World.h"
-#include "Math/Vector.h"
-#include "Math/Rotator.h"
-#include "DrawDebugHelpers.h"
+#include "GameFramework/Actor.h"
 #include "Grabber.generated.h"
 
 
