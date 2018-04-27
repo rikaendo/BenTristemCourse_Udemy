@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "GameFramework/Actor.h"
+#include "Components/InputComponent.h"
 #include "Grabber.generated.h"
 
 
@@ -27,5 +29,14 @@ public:
 private:
 	//How far the player can reach, in cm
 	float Reach = 100.0f;
-	
+
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+
+	UInputComponent* InputComponent = nullptr;
+
+	///Ray-cast and grab what's in reach
+	void Grab();
+
+	///called when grab key is released
+	void Release();
 };
