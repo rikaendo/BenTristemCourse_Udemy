@@ -6,6 +6,7 @@
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "GameFramework/Actor.h"
 #include "Components/InputComponent.h"
+#include "Engine/EngineTypes.h"
 #include "Grabber.generated.h"
 
 
@@ -39,4 +40,13 @@ private:
 
 	///called when grab key is released
 	void Release();
+
+	///find attached physics handle
+	void FindPhysicsHandleComponent();
+
+	///setup (assumed) attached input component
+	void SetupInputComponent();
+
+	///return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyInReach();
 };
