@@ -1,7 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "OpenDoor.h"
+#include "Engine/TriggerVolume.h"
+#include "GameFramework/Actor.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
 
+#define OUT
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -20,7 +25,6 @@ void UOpenDoor::BeginPlay()
 	Super::BeginPlay();
 
 	Owner = GetOwner();
-	ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
 	DoorOldRotation = Owner->GetActorRotation();
 }
 
@@ -29,19 +33,30 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
+//Poll the trigger volume
+	if (GetTotalMassOfActorsOnPlate() > 50.0f)//TODO make into parameter
 	{
 		OpenDoor();
 		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
 	}
-	
+//check if it is time to close door
 	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime > DoorCloseDelay)
 	{
 		CloseDoor();
 	}
-
 }
 
+float UOpenDoor::GetTotalMassOfActorsOnPlate()
+{
+	float TotalMass = 0.0f;
+
+	TArray<AActor*> OverlappingActors;
+	//Find all overlapping actors
+	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
+	//Iterate through them adding their masses
+
+	return TotalMass;
+}
 
 
 void UOpenDoor::OpenDoor()

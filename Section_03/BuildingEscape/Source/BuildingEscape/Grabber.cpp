@@ -1,14 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Grabber.h"
-#include "Components/ActorComponent.h"
-#include "Components/PrimitiveComponent.h"
+#include "Components/InputComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
-#include "Math/Vector.h"
-#include "Math/Rotator.h"
-#include "DrawDebugHelpers.h"
-
+#include "Components/InputComponent.h"
 
 #define OUT
 

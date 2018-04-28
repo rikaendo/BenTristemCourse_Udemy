@@ -3,12 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "GameFramework/Actor.h"
-#include "Components/InputComponent.h"
-#include "Engine/EngineTypes.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h"
-
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UGrabber : public UActorComponent
@@ -55,5 +52,4 @@ private:
 
 	///Gets Line trace end point from Player view point location and rotation with specified reach
 	FVector GetLineTraceEnd();
-
 };
