@@ -27,7 +27,7 @@ void UOpenDoor::BeginPlay()
 	{
 		UE_LOG(LogTemp, Error, TEXT("%s missing Pressure Plate"), *GetOwner()->GetName()) 
 	}
-	DoorOldRotation = Owner->GetActorRotation();
+	DoorOriginalRotation = GetOwner()->GetActorRotation();
 }
 
 // Called every frame
@@ -36,15 +36,39 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 //Poll the trigger volume
-	if (GetTotalMassOfActorsOnPlate() > 30.0f)//TODO make into TWO parameters, one for inner door and one for outer door
+	/*if (!bDoorIsOpen)
 	{
-		OpenDoor();
-		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
+		if (GetTotalMassOfActorsOnPlate() > TriggerMass)//TODO make into TWO parameters, one for inner door and one for outer door
+		{
+			OnOpen.Broadcast();
+			bDoorIsOpen = true;
+		}
 	}
-//check if it is time to close door
-	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime > DoorCloseDelay)
+	else
 	{
-		CloseDoor();
+		if (GetTotalMassOfActorsOnPlate() < TriggerMass)
+		{
+			OnClose.Broadcast();
+			bDoorIsOpen = false;
+		}
+	}*/
+
+
+	if (GetTotalMassOfActorsOnPlate() > TriggerMass)//TODO make into TWO parameters, one for inner door and one for outer door
+	{
+		if (!bDoorIsOpen)
+		{
+			OnOpen.Broadcast();
+			bDoorIsOpen = true;
+		}
+	}
+	else
+	{
+		if (bDoorIsOpen)
+		{
+			OnClose.Broadcast();
+			bDoorIsOpen = false;
+		}
 	}
 }
 
@@ -65,15 +89,4 @@ float UOpenDoor::GetTotalMassOfActorsOnPlate()
 	}
 
 	return TotalMass;
-}
-
-void UOpenDoor::OpenDoor()
-{
-	//Owner->SetActorRotation(FRotator(0.0f, OpenAngle, 0.0f));
-	OnOpenRequest.Broadcast();
-}
-
-void UOpenDoor::CloseDoor()
-{
-	Owner->SetActorRotation(DoorOldRotation);
 }
