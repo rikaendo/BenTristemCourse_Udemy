@@ -12,6 +12,16 @@
 */BuildingEscape/Content/StarterContent/Maps
 
 
+*/BattleTank/Binaries/
+*/BattleTank/Build/
+*/BattleTank/DerivedDataCache/
+*/BattleTank/Intermediate/
+*/BattleTank/Saved/
+*/BattleTank/Content/StarterContent/Textures
+*/BattleTank/Content/StarterContent/HDRI
+*/BattleTank/Content/StarterContent/Maps
+
+
 ######################
 # VS Generated Files #
 ######################
@@ -23,4 +33,3 @@
 *.opendb
 *.suo
 *.sln
-Section_04/BattleTank/Saved/Autosaves/
