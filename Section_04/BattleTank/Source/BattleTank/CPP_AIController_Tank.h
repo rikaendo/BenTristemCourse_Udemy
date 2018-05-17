@@ -15,8 +15,10 @@ class BATTLETANK_API ACPP_AIController_Tank : public AAIController
 {
 	GENERATED_BODY()
 	
-public:
-	ACPP_Tank * GetAIControlledTank();
-	
+private:
+
 	void BeginPlay() override;
+
+	ACPP_Tank* GetAIControlledTank() const;
+	ACPP_Tank* GetPlayerTank() const;
 };
