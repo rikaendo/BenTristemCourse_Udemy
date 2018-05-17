@@ -16,7 +16,13 @@ class BATTLETANK_API ACPP_PlayerController_Tank : public APlayerController
 	GENERATED_BODY()
 	
 public:
-	ACPP_Tank* GetControlledTank() const;
+	void Tick(float DeltaTime) override;
 	
 	void BeginPlay() override;
+	
+	ACPP_Tank* GetControlledTank() const;
+
+private:
+	//start the tank moving the barrel so that a shot would hit where the crosshair intersects
+	void AimTowardsCrossHair();
 };
