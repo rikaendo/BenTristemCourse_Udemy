@@ -17,7 +17,8 @@ class BATTLETANK_API ACPP_AIController_Tank : public AAIController
 	
 private:
 
-	void BeginPlay() override;
+	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 
 	ACPP_Tank* GetAIControlledTank() const;
 	ACPP_Tank* GetPlayerTank() const;

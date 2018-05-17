@@ -2,18 +2,7 @@
 
 #include "CPP_AIController_Tank.h"
 #include "GameFramework/Actor.h"
-
-ACPP_Tank* ACPP_AIController_Tank::GetAIControlledTank() const
-{
-	return Cast<ACPP_Tank>(GetPawn());
-}
-
-ACPP_Tank* ACPP_AIController_Tank::GetPlayerTank() const
-{
-	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (!PlayerPawn){ return nullptr; }
-	return Cast<ACPP_Tank>(PlayerPawn);
-}
+#include "Engine/World.h"
 
 void ACPP_AIController_Tank::BeginPlay()
 {
@@ -29,3 +18,32 @@ void ACPP_AIController_Tank::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("AI Controller found player: %s"), *GetPlayerTank()->GetName());
 	}
 }
+
+void ACPP_AIController_Tank::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		//TODO move towards player
+		//Aim at player
+		GetAIControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		//Fire if ready
+	}
+}
+
+
+
+ACPP_Tank* ACPP_AIController_Tank::GetAIControlledTank() const
+{
+	return Cast<ACPP_Tank>(GetPawn());
+}
+
+ACPP_Tank* ACPP_AIController_Tank::GetPlayerTank() const
+{
+	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	if (!PlayerPawn){ return nullptr; }
+	return Cast<ACPP_Tank>(PlayerPawn);
+}
+
+
+

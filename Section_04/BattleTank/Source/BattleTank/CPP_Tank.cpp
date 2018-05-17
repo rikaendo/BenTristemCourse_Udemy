@@ -32,3 +32,9 @@ void ACPP_Tank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void ACPP_Tank::AimAt(FVector HitLocation)
+{
+	auto OurTankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s aiming at: %s"), *OurTankName, *HitLocation.ToString());
+}
+
