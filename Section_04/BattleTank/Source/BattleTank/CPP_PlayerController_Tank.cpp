@@ -23,7 +23,7 @@ void ACPP_PlayerController_Tank::BeginPlay()
 void ACPP_PlayerController_Tank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//AimTowardsCrossHair();
+	AimTowardsCrossHair();
 }
 
 
@@ -37,7 +37,28 @@ void ACPP_PlayerController_Tank::AimTowardsCrossHair()
 {
 	if (!GetControlledTank()) { return; }
 
-	//get world location is linetrace through crosshair
-	//if it hits the landscape
-		//tell controlled tank to aim at this point
+	FVector OutHitLocation; //Out parameter
+	if (GetSightRayHitLocation(OutHitLocation))//Has "side-effect", is going to line trace
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Look direction: %s"), *OutHitLocation.ToString());
+		//TODO tell controlled tank to aim at this point
+	}
+}
+
+//Get world location of linetrace through crosshair, true if it hits landscape
+bool ACPP_PlayerController_Tank::GetSightRayHitLocation(FVector& OutHitLocation) const
+{
+	//Find crosshair position in pixel coordinates
+	int32 ViewportSizeX, ViewportSizeY;
+	GetViewportSize(ViewportSizeX, ViewportSizeY);
+	auto ScreenLocation = FVector2D(ViewportSizeX * CrosshairXLocation, ViewportSizeY * CrosshairYLocation);
+
+
+	//deproject screen position to world direction
+	//linetrace along that direction
+	
+	/* FVector LineTraceStart = AimPoint from PlayerUI
+	FVector LineTraceEnd = LineTraceStart + Rotation * Length
+	GetWorld()->LineTraceSingleByObjectType(){}*/
+	return true;
 }

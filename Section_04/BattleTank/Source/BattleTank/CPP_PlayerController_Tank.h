@@ -19,10 +19,21 @@ public:
 	void Tick(float DeltaTime) override;
 	
 	void BeginPlay() override;
-	
+
+private:	
 	ACPP_Tank* GetControlledTank() const;
 
-private:
+	bool GetSightRayHitLocation() const;
+
 	//start the tank moving the barrel so that a shot would hit where the crosshair intersects
 	void AimTowardsCrossHair();
+
+	//returns OUT parameter, true if hits landscape
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;	
+	
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = 0.5;
+
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = 0.33333;
 };
