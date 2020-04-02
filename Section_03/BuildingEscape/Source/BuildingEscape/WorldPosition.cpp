@@ -22,6 +22,8 @@ void UWorldPosition::BeginPlay()
 
 	FString ObjectName = GetOwner()->GetName();
 	UE_LOG(LogTemp, Warning, TEXT("This object's name is %s"), *ObjectName);
+	FString ObjectPosition = GetOwner()->GetActorLocation().ToString(); //If function returns a pointer (has *) use "->", if not use "."
+	UE_LOG(LogTemp, Warning, TEXT("%s is at position %s."), *ObjectName, *ObjectPosition);
 }
 
 
