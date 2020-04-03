@@ -17,14 +17,14 @@
 */BattleTank/Content/StarterContent/HDRI
 */BattleTank/Content/StarterContent/Maps
 
-*/Binaries/
-*/Build/
-*/DerivedDataCache/
-*/Intermediate/
-*/Saved/
-*/Content/StarterContent/Textures
-*/Content/StarterContent/HDRI
-*/Content/StarterContent/Maps
+MyOwnProjects/EverythingGrows/Binaries/
+MyOwnProjects/EverythingGrows/Binaries/Build/
+MyOwnProjects/EverythingGrows/Binaries/DerivedDataCache/
+MyOwnProjects/EverythingGrows/Binaries/Intermediate/
+MyOwnProjects/EverythingGrows/Binaries/Saved/
+MyOwnProjects/EverythingGrows/Binaries/Content/StarterContent/Textures
+MyOwnProjects/EverythingGrows/Binaries/Content/StarterContent/HDRI
+MyOwnProjects/EverythingGrows/Binaries/Content/StarterContent/Maps
 
 ######################
 # VS Generated Files #
@@ -37,3 +37,4 @@
 *.opendb
 *.suo
 *.sln
+
