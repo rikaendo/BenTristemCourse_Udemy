@@ -7,7 +7,6 @@
 */BuildingEscape/DerivedDataCache/
 */BuildingEscape/Intermediate/
 */BuildingEscape/Saved/
- 
 
 */BattleTank/Binaries/
 */BattleTank/Build/
@@ -18,6 +17,14 @@
 */BattleTank/Content/StarterContent/HDRI
 */BattleTank/Content/StarterContent/Maps
 
+*/Binaries/
+*/Build/
+*/DerivedDataCache/
+*/Intermediate/
+*/Saved/
+*/Content/StarterContent/Textures
+*/Content/StarterContent/HDRI
+*/Content/StarterContent/Maps
 
 ######################
 # VS Generated Files #
