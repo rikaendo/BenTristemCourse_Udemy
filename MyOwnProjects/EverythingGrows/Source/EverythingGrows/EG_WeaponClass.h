@@ -47,6 +47,14 @@ public:
 	bool IsEquipped;
 	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
 	bool IsDiscarded;
+	FString WeaponName;
+
+	UFUNCTION(BlueprintCallable)
+	EWeaponType GetWeaponType();
+	UFUNCTION(BlueprintCallable)
+	FString SetWeaponName(bool bPickRandom, FString CustomName, EWeaponType WeaponCategory);
+	UFUNCTION(BlueprintCallable)
+	FString GetWeaponName();
 
 protected:
 	// Called when the game starts or when spawned

@@ -24,6 +24,12 @@ class EVERYTHINGGROWS_API IGrowable
 public:
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Growth")
-	void Grow(int32 MaxGrow, int32 CurrentGrow);
+	void Grow(int32 LevelMaxGrow, int32 PlayerCurrentGrow);
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Growth")
+	void StopGrow();
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Growth")
+	void ResetGrow();
 
 };
