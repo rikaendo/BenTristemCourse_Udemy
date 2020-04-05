@@ -18,12 +18,15 @@ void AEverythingGrowsPlayerController::PlayerTick(float DeltaTime)
 	Super::PlayerTick(DeltaTime);
 
 	// keep updating the destination every tick while desired
+	/*
 	if (bMoveToMouseCursor)
 	{
 		MoveToMouseCursor();
 	}
+	*/
 }
 
+/*
 void AEverythingGrowsPlayerController::SetupInputComponent()
 {
 	// set up gameplay key bindings
@@ -38,12 +41,14 @@ void AEverythingGrowsPlayerController::SetupInputComponent()
 
 	InputComponent->BindAction("ResetVR", IE_Pressed, this, &AEverythingGrowsPlayerController::OnResetVR);
 }
+*/
 
 void AEverythingGrowsPlayerController::OnResetVR()
 {
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
 }
 
+/*
 void AEverythingGrowsPlayerController::MoveToMouseCursor()
 {
 	if (UHeadMountedDisplayFunctionLibrary::IsHeadMountedDisplayEnabled())
@@ -69,7 +74,9 @@ void AEverythingGrowsPlayerController::MoveToMouseCursor()
 		}
 	}
 }
+*/
 
+/*
 void AEverythingGrowsPlayerController::MoveToTouchLocation(const ETouchIndex::Type FingerIndex, const FVector Location)
 {
 	FVector2D ScreenSpaceLocation(Location);
@@ -117,3 +124,4 @@ void AEverythingGrowsPlayerController::SetMoveToMouseCursor(bool bCanMove)
 	bMoveToMouseCursor = bCanMove;
 }
 
+*/
