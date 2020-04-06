@@ -12,6 +12,11 @@ class AEverythingGrowsCharacter : public ACharacter
 	GENERATED_BODY()
 
 public:
+
+	UPROPERTY(EditAnywhere, Category="EG_EnemyClass")
+	bool bIsDead;
+	
+
 	AEverythingGrowsCharacter();
 
 	// Called every frame.

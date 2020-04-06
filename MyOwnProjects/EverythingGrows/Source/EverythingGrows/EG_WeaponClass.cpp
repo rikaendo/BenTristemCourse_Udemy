@@ -15,7 +15,7 @@ AEG_WeaponClass::AEG_WeaponClass()
 void AEG_WeaponClass::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	AttackType = SetAttackType(WeaponType);
 }
 
 // Called every frame
@@ -53,6 +53,15 @@ FString AEG_WeaponClass::SetWeaponName(bool bPickRandom, FString CustomName, EWe
 		(TEXT("Single-edged Sword"))
 	};
 
+	TArray<FString> GunNames
+	{
+		(TEXT("Water Gun")),
+		(TEXT("Paint Gun")),
+		(TEXT("Staple Gun")),
+		(TEXT("Derringer")),
+		(TEXT("BB Gun"))
+	};
+
 	TArray<FString> StaffNames
 	{
 		(TEXT("Wooden Staff")),
@@ -62,35 +71,26 @@ FString AEG_WeaponClass::SetWeaponName(bool bPickRandom, FString CustomName, EWe
 		(TEXT("Dark Staff"))
 	};
 
-	TArray<FString> GunNames
-	{
-		(TEXT("Water Gun")),
-		(TEXT("Paint Gun")),
-		(TEXT("Staple Gun")),
-		(TEXT("Derringer")),
-		(TEXT("BB Gun"))
-	};
-	
 	if (bPickRandom == true)
 	{
 		switch (WeaponCategory)
 		{
-		case EWeaponType::Knife:
+		case EWeaponType::Knife :
 			PickedName = KnifeNames[RandIndex];
 			break;
 
-		case EWeaponType::Sword:
+		case EWeaponType::Sword :
 			PickedName = SwordNames[RandIndex];
 			break;
 
-		case EWeaponType::Staff:
-			PickedName = StaffNames[RandIndex];
-			break;
-
-		case EWeaponType::Gun:
+		case EWeaponType::Gun :
 			PickedName = GunNames[RandIndex];
 			break;
-		
+
+		case EWeaponType::Staff :
+			PickedName = StaffNames[RandIndex];
+			break;	
+
 		default:
 			PickedName = (TEXT("none"));
 			break;
@@ -107,4 +107,36 @@ FString AEG_WeaponClass::SetWeaponName(bool bPickRandom, FString CustomName, EWe
 FString AEG_WeaponClass::GetWeaponName()
 {
 	return WeaponName;
+}
+
+EAttackType AEG_WeaponClass::SetAttackType(EWeaponType WeaponCategory)
+{
+	EAttackType Type;
+
+	switch (WeaponCategory)
+	{
+	case EWeaponType::Knife :
+		Type = EAttackType::ShortRangeSingle;
+		break;
+	
+	case EWeaponType::Sword :
+		Type = EAttackType::ShortRangeMulti;
+
+	case EWeaponType::Gun :
+		Type = EAttackType::LongRangeSingle;
+
+	case EWeaponType::Staff :
+		Type = EAttackType::LongRangeMulti;
+
+	default:
+		Type = EAttackType::None;
+		break;
+	} 
+
+	return Type;
+}
+
+EAttackType AEG_WeaponClass::GetAttackType()
+{
+	return AttackType;
 }

@@ -12,18 +12,18 @@ enum class EWeaponType : uint8
 	None,
 	Knife,
 	Sword,
-	Staff,
-	Gun
+	Gun,
+	Staff
 };
 
 UENUM(BlueprintType)
 enum class EAttackType : uint8
 {
 	None,
-	ShortRangeWeak,
-	ShortRangeStrong,
-	LongRangeMagic,
-	LongRangeNormal
+	ShortRangeSingle,
+	ShortRangeMulti,
+	LongRangeSingle,
+	LongRangeMulti
 };
 
 UCLASS()
@@ -40,13 +40,17 @@ public:
 	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
 	EAttackType AttackType;
 	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
-	int32 DamagePoints;
+	int32 AttackDamage;
 	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
 	bool InInventory;
 	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
 	bool IsEquipped;
 	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
-	bool IsDiscarded;
+	bool IsDropped;
+	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	FVector DropLocation;
+	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	int32 DropIslandIndex;
 	FString WeaponName;
 
 	UFUNCTION(BlueprintCallable)
@@ -55,6 +59,10 @@ public:
 	FString SetWeaponName(bool bPickRandom, FString CustomName, EWeaponType WeaponCategory);
 	UFUNCTION(BlueprintCallable)
 	FString GetWeaponName();
+	UFUNCTION(BlueprintCallable)
+	EAttackType SetAttackType(EWeaponType WeaponCategory);
+	UFUNCTION(BlueprintCallable)
+	EAttackType GetAttackType();
 
 protected:
 	// Called when the game starts or when spawned
