@@ -82,6 +82,29 @@ void AEG_EnemyClass::SetMaxEggTurns(EDifficulty Difficulty)
 	return;
 }
 
+void AEG_EnemyClass::SetMaxGrowTurns(EDifficulty Difficulty)
+{
+	switch(Difficulty)
+	{
+	case EDifficulty::Easy :
+		MaxGrowTurns = 3;
+		break;
+
+	case EDifficulty::Medium :
+		MaxGrowTurns = 2;
+		break;
+
+	case EDifficulty::Hard :
+		MaxGrowTurns = 1;
+		break;
+
+	default:
+		MaxGrowTurns = 3;
+		break;
+	}
+	return;
+}
+
 void AEG_EnemyClass::SetCurrentGrowTurn(int32 CurrentTurn)
 {
 	CurrentGrowTurn = CurrentTurn; //may change later to calculate based off of island index and which one the egg hatched at

@@ -41,6 +41,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_EnemyClass")
 	bool bIsHatched;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_EnemyClass")
+	int32 MaxGrowTurns;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_EnemyClass")
 	int32 CurrentGrowTurn;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_EnemyClass")
 	bool bReadyForCombat;
@@ -57,6 +59,8 @@ public:
 	void SetEnemyType(EWeaponType WeaponCategory);
 	UFUNCTION(BlueprintCallable)
 	void SetMaxEggTurns(EDifficulty Difficulty);
+	UFUNCTION(BlueprintCallable)
+	void SetMaxGrowTurns(EDifficulty Difficulty);
 	UFUNCTION(BlueprintCallable)
 	void SetCurrentGrowTurn(int32 CurrentTurn);
 	UFUNCTION(BlueprintCallable)

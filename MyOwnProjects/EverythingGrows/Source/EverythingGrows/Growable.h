@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "EG_WeaponClass.h"
 #include "Growable.generated.h"
 
 // This class does not need to be modified.
@@ -24,7 +25,7 @@ class EVERYTHINGGROWS_API IGrowable
 public:
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Growth")
-	void Grow(bool bInInventory, int32 LevelMaxGrow, int32 PlayerCurrentGrow);
+	void Grow(int32 PlayerCurrentIsland, FVector PlayerCurrentLoc);
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category="Growth")
 	void StopGrow();

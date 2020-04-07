@@ -35,22 +35,24 @@ public:
 	// Sets default values for this actor's properties
 	AEG_WeaponClass();
 
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	EWeaponType WeaponType;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	EAttackType AttackType;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	int32 AttackDamage;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	bool InInventory;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	bool IsEquipped;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	bool IsDropped;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	FVector DropLocation;
-	UPROPERTY(EditAnywhere, Category="EG_WeaponClass")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
 	int32 DropIslandIndex;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="EG_WeaponClass")
+	int32 CurrentGrowTurn;
 	FString WeaponName;
 
 	UFUNCTION(BlueprintCallable)
